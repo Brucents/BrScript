@@ -1,2 +1,0 @@
-# BrScript
-TEST
