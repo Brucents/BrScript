@@ -1,2 +1,1 @@
-# BrScript
-TEST
+test
