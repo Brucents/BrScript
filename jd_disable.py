@@ -90,7 +90,7 @@ def get_duplicate_list(tasklist: list) -> tuple:
     names = []
     cmds = []
     for task in tasklist:
-        ids.append(task.get("_id"))
+        ids.append(task.get("id"))
         names.append(task.get("name"))
         cmds.append(task.get("command"))
 
@@ -130,7 +130,7 @@ def reserve_task_only(
     for task1 in tem_tasks:
         for task2 in res_list:
             if task1.get("name") == task2.get("name"):
-                dup_ids.append(task1.get("_id"))
+                dup_ids.append(task1.get("id"))
                 logger.info(f"【✅保留】{task2.get('command')}")
                 task3 = task1
         if task3:
@@ -155,7 +155,7 @@ def disable_duplicate_tasks(ids: list) -> None:
 
 def get_token() -> str or None:
     try:
-        with open("/ql/config/auth.json", "r", encoding="utf-8") as f:
+        with open("/ql/data/config/auth.json", "r", encoding="utf-8") as f:
             data = json.load(f)
     except Exception:
         logger.info(f"❌无法获取 token!!!\n{traceback.format_exc()}")
